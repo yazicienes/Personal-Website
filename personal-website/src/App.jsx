@@ -5,12 +5,9 @@ const App = () => {
   const [sectionIndex, setSectionIndex] = useState(0);
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Welcome to My React App</h1>
-      </header>
-      <section className="main-section">
-        <h2>Main Section</h2>
-        <p>This is the main content of the app.</p>
+      <section className="welcome-section">
+      <h1>Welcome to My Shire</h1>
+      <p>"Help me on my journey to destroy the code ring."</p>
       </section>
       <section className="about-section">
         <h2>About Section</h2>
