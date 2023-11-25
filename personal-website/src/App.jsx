@@ -1,40 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css'; // Import your CSS file for styling
 
 const App = () => {
-  const [scrollY, setScrollY] = useState(0);
-
-  const handleScroll = () => {
-    setScrollY(window.scrollY);
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
+  const [sectionIndex, setSectionIndex] = useState(0);
   return (
-    <div>
-      {/* Frodo's House Section */}
-      <section id="welcome">
-        <div className="map" style={{ transform: `translateY(${scrollY * 0.5}px)` }} />
-        <div id="welcome-content">
-          <h1>Welcome to My Shire</h1>
-          <p>"Help me on my journey to destroy the code ring."</p>
-        </div>
-        <div id="frodo" style={{ right: `${80 + scrollY * 0.2}%` }} />
+    <div className="App">
+      <header className="App-header">
+        <h1>Welcome to My React App</h1>
+      </header>
+      <section className="main-section">
+        <h2>Main Section</h2>
+        <p>This is the main content of the app.</p>
       </section>
-
-      {/* Fellowship Section */}
-      <section id="name-position">
-        <h1>Your Name</h1>
-        <p>Your Position</p>
+      <section className="about-section">
+        <h2>About Section</h2>
+        <p>Learn more about our awesome React app here.</p>
       </section>
-
-      {/* Firework Animation */}
-      <div id="firework" className={scrollY > 500 ? 'active' : ''} />
+      <section className="contact-section">
+        <h2>Contact Section</h2>
+        <p>Get in touch with us!</p>
+      </section>
+      <footer className="App-footer">
+        <p>&copy; 2023 My React App</p>
+      </footer>
     </div>
   );
 };
