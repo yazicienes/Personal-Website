@@ -1,27 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import './App.css'; // Import your CSS file for styling
+import React, { Suspense, useRef } from "react"
+import { Canvas } from "@react-three/fiber"
+import { Environment } from "@react-three/drei"
+import Model from "./Model"
+import Overlay from "./Overlay"
 
-const App = () => {
-  const [sectionIndex, setSectionIndex] = useState(0);
+
+export default function App() {
+  const overlay = useRef()
+  const caption = useRef()
+  const scroll = useRef(0)
   return (
-    <div className="App">
-      <section className="welcome-section">
-      <h1>Welcome to My Shire</h1>
-      <p>"Help me on my journey to destroy the code ring."</p>
-      </section>
-      <section className="about-section">
-        <h2>About Section</h2>
-        <p>Learn more about our awesome React app here.</p>
-      </section>
-      <section className="contact-section">
-        <h2>Contact Section</h2>
-        <p>Get in touch with us!</p>
-      </section>
-      <footer className="App-footer">
-        <p>&copy; 2023 My React App</p>
-      </footer>
-    </div>
-  );
-};
-
-export default App;
+    <>
+      <Canvas shadows eventSource={document.getElementById("root")} eventPrefix="client">
+        <ambientLight intensity={1} />
+        <Suspense fallback={null}>
+          <Model scroll={scroll} />
+          <Environment preset="city" />
+        </Suspense>
+      </Canvas>
+      <Overlay ref={overlay} caption={caption} scroll={scroll} />
+    </>
+  )
+}
