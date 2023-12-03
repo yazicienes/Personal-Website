@@ -1,56 +1,35 @@
-import React, { forwardRef } from "react"
+import React, { forwardRef } from "react" //allows a component to pass down a ref to one of its children
 
-const Overlay = forwardRef(({ caption, scroll }, ref) => (
+const Overlay = forwardRef((props, ref) => (
   <div
-    ref={ref}
-    onScroll={(e) => {
-      scroll.current = e.target.scrollTop / (e.target.scrollHeight - window.innerHeight)
-      caption.current.innerText = scroll.current.toFixed(2)
-    }}
-    class="scroll">
+    className="scroll">
     <div style={{ height: "400vh" }}>
-      <div class="dot">
-        <h1>headset</h1>
-        Virtual reality (VR) is a simulated experience that can be similar to or completely different from the real world.
+      <div className="dot">
+        <h1>Welcome</h1>
+        Welcome to the Shire, the peaceful and picturesque land where my journey begins. Just as Frodo Baggins set out from this idyllic place, my basic personal information forms the tranquil foundation of my story.
       </div>
     </div>
     <div style={{ height: "200vh" }}>
-      <div class="dot">
-        <h1>headphone</h1>
-        Headphones are a pair of small loudspeaker drivers worn on or around the head over a user's ears.
+      <div className="dot">
+        <h1>Education</h1>
+        Embark on a journey to unlock the treasures of knowledge and growth, much like the key to Erebor. My education serves as the key, propelling me toward new horizons equipped with wisdom and insights.
       </div>
     </div>
     <div style={{ height: "200vh" }}>
-      <div class="dot">
-        <h1>rocket</h1>A rocket (from Italian: rocchetto, lit. 'bobbin/spool')[nb 1][1] is a projectile that spacecraft, aircraft or other vehicle use to obtain thrust from a
-        rocket engine.
+      <div className="dot">
+        <h1>Skills</h1>Behold the staff of Gandalf, symbolizing the power and depth of my skills. Like Gandalf, my expertise is a guiding force, combining knowledge and experience to overcome challenges.
       </div>
     </div>
     <div style={{ height: "200vh" }}>
-      <div class="dot">
-        <h1>turbine</h1>A turbine (/ˈtɜːrbaɪn/ or /ˈtɜːrbɪn/) (from the Greek τύρβη, tyrbē, or Latin turbo, meaning vortex)[1][2] is a rotary mechanical device that extracts energy
-        from a fluid flow and converts it into useful work.
+      <div className="dot">
+        <h1>Projects</h1>Venture into the realm of personal projects, where each endeavor is a crafted arrow from Lothlórien or a strategic plan from Isengard. These projects showcase my creativity, precision, and ability to tackle challenges.
       </div>
     </div>
     <div style={{ height: "200vh" }}>
-      <div class="dot">
-        <h1>table</h1>A table is an item of furniture with a flat top and one or more legs, used as a surface for working at, eating from or on which to place things.[1][2]
+      <div className="dot">
+        <h1>Work Experience</h1>As we approach the symbolic Mount Doom, representing challenges and triumphs, behold my professional journey tied together by the One Ring. Each experience, like the ring, adds a unique facet to my story.
       </div>
     </div>
-    <div style={{ height: "200vh" }}>
-      <div class="dot">
-        <h1>laptop</h1>A laptop, laptop computer, or notebook computer is a small, portable personal computer (PC) with a screen and alphanumeric keyboard.
-      </div>
-    </div>
-    <div style={{ height: "200vh" }}>
-      <div class="dot">
-        <h1>zeppelin</h1>A Zeppelin is a type of rigid airship named after the German inventor Count Ferdinand von Zeppelin (German pronunciation: [ˈt͡sɛpəliːn]) who pioneered rigid
-        airship development at the beginning of the 20th century.
-      </div>
-    </div>
-    <span class="caption" ref={caption}>
-      0.00
-    </span>
   </div>
 ))
 
